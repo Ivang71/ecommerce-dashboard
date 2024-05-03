@@ -10,7 +10,7 @@ export default function Header() {
       <nav className="h-14 flex items-center justify-between px-4">
         <div className="hidden md:block">
           <Link
-            href={"https://github.com/Kiranism/next-shadcn-dashboard-starter"}
+            href={"https://github.com/Ivang71/ecommerce-dashboard"}
             target="_blank"
           >
             <svg

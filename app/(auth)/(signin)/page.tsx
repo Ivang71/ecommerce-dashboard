@@ -1,16 +1,21 @@
+'use client'
 import { Metadata } from "next";
 import Link from "next/link";
 import Image from 'next/image';
 import UserAuthForm from "@/components/forms/user-auth-form";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { useState } from "react"
 
-export const metadata: Metadata = {
-  title: "Log in",
-  description: "Log it to the ecommerce dashboard.",
-};
+// export const metadata: Metadata = {
+//   title: "Log in",
+//   description: "Log it to the ecommerce dashboard.",
+// };
 
 export default function AuthenticationPage() {
+  const [isPicLoaded, setIsPicLoaded] = useState(false)
+
+  const onPicLoad = () => setIsPicLoaded(true)
   return (
     <div className="relative h-screen flex-col items-center justify-center md:grid lg:max-w-none lg:grid-cols-2 lg:px-0">
       <Link
@@ -24,8 +29,8 @@ export default function AuthenticationPage() {
       </Link>
       <div className="relative hidden h-full flex-col bg-muted p-10 text-white dark:border-r lg:flex">
         {/* <div className="absolute inset-0 bg-cover bg-[url('https://images.unsplash.com/photo-1517156413743-489c8c11d671?q=80')] brightness-70" /> */}
-        <Image src="https://images.unsplash.com/photo-1517156413743-489c8c11d671?q=80" alt="mountains"
-            className="absolute inset-0 h-screen object-cover pointer-events-none" width={3840} height={2160}
+        <Image src="https://images.unsplash.com/photo-1517156413743-489c8c11d671?q=80" alt="mountains" onLoad={onPicLoad} width={3840} height={2160}
+            className={`absolute inset-0 h-screen object-cover pointer-events-none transition-opacity duration-300 ease-in-out ${isPicLoaded? "opacity-100":"opacity-0"}`}
         />
         <div className="relative z-20 flex items-center text-lg font-medium">
           <svg

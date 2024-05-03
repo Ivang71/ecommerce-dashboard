@@ -1,12 +1,13 @@
 import { Metadata } from "next";
 import Link from "next/link";
+import Image from 'next/image';
 import UserAuthForm from "@/components/forms/user-auth-form";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
-  title: "Authentication",
-  description: "Authentication forms built using the components.",
+  title: "Log in",
+  description: "Log it to the ecommerce dashboard.",
 };
 
 export default function AuthenticationPage() {
@@ -22,7 +23,10 @@ export default function AuthenticationPage() {
         Login
       </Link>
       <div className="relative hidden h-full flex-col bg-muted p-10 text-white dark:border-r lg:flex">
-        <div className="absolute inset-0 bg-zinc-900" />
+        {/* <div className="absolute inset-0 bg-cover bg-[url('https://images.unsplash.com/photo-1517156413743-489c8c11d671?q=80')] brightness-70" /> */}
+        <Image src="https://images.unsplash.com/photo-1517156413743-489c8c11d671?q=80" alt="mountains"
+            className="absolute inset-0 brightness-75 h-screen object-cover pointer-events-none" width={3840} height={2160}
+        />
         <div className="relative z-20 flex items-center text-lg font-medium">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -36,16 +40,14 @@ export default function AuthenticationPage() {
           >
             <path d="M15 6v12a3 3 0 1 0 3-3H6a3 3 0 1 0 3 3V6a3 3 0 1 0-3 3h12a3 3 0 1 0-3-3" />
           </svg>
-          Logo
+          Acme
         </div>
         <div className="relative z-20 mt-auto">
           <blockquote className="space-y-2">
             <p className="text-lg">
-              &ldquo;This library has saved me countless hours of work and
-              helped me deliver stunning designs to my clients faster than ever
-              before.&rdquo;
+              &ldquo;Striving for greatness every day.&rdquo;
             </p>
-            <footer className="text-sm">Sofia Davis</footer>
+            {/* <footer className="text-sm">Sofia Davis</footer> */}
           </blockquote>
         </div>
       </div>

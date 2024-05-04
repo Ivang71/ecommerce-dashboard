@@ -5,17 +5,18 @@ import Image from 'next/image';
 import UserAuthForm from "@/components/forms/user-auth-form";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
-// export const metadata: Metadata = {
-//   title: "Log in",
-//   description: "Log it to the ecommerce dashboard.",
-// };
 
 export default function AuthenticationPage() {
   const [isPicLoaded, setIsPicLoaded] = useState(false)
 
   const onPicLoad = () => setIsPicLoaded(true)
+  
+  useEffect(() => {
+    document.title = 'Log in'
+  }, [])
+  
   return (
     <div className="relative h-screen flex-col items-center justify-center md:grid lg:max-w-none lg:grid-cols-2 lg:px-0">
       <Link
